@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+console.log('HIT! 1');
 app.post('/testytest', slackTest);
 
 module.exports = app;
