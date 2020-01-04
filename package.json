@@ -1,7 +1,17 @@
 {
   "name": "lunch-brain",
+  "repository": "https://github.com/Wowsaruss/lunch-brain",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Russell Hayes",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "slack": "^11.0.2"
+  }
 }
