@@ -5,6 +5,9 @@
   "main": "index.js",
   "author": "Russell Hayes",
   "license": "MIT",
+  "engines": {
+    "node": "12.12.0"
+  },
   "scripts": {
     "start": "node index.js"
   },
