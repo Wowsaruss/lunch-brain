@@ -4,6 +4,7 @@ const bot = new Slack({ token });
 
 async function slackTest(req, res) {
   try {
+    console.log('HIT! 2');
     console.log(req.body);
     await Slack.api.test({ hello: 'world' }, console.log);
 
