@@ -1,6 +1,6 @@
-const { db } = require('../src/utils');
+const { db } = require('../utils');
 
-async function lunchOrder({ body }, res) {
+async function slashCommands({ body }, res) {
   try {
     if (body.text) {
       await db.orders().findOneAndUpdate(
@@ -35,4 +35,4 @@ async function lunchOrder({ body }, res) {
   }
 }
 
-module.exports = { lunchOrder };
+module.exports = slashCommands;
