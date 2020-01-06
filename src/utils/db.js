@@ -8,21 +8,22 @@ function connect() {
   });
 }
 
-let connection = connect();
+let db = connect();
 
 function state() {
-  return (connection || {})._state || 'closed';
+  return (db || {})._state || 'closed';
 }
 
-function db() {
+function orders() {
   if (state() === 'closed') {
     console.log('db was detected as closed, attempting reconnect');
-    connection = connect();
+    db = connect();
     console.log(`db connection is ${state()}`);
   }
-  return connection;
+
+  return db.get('orders');
 }
 
 console.log(`db connection is ${state()}`);
 
-module.exports = { db, state };
+module.exports = { orders, state };
