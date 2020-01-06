@@ -32,7 +32,7 @@ async function lunchOrder({ body }, res) {
 
     return res
       .status(200)
-      .send(`${prevOrder.userName.toUpperCase()}\n${prevOrder.order}`);
+      .send(`*${prevOrder.userName.toUpperCase()}*\n${prevOrder.order}`);
   } catch (e) {
     console.log(e);
   }
