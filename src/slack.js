@@ -6,24 +6,32 @@ const { db } = require('../src/utils');
 async function slackTest({ body }, res) {
   try {
     console.log(body);
-    const prevOrder = await db.orders().findOneAndUpdate(
-      { userID: body.user_id, restaurant: body.text },
-      {
-        $set: {
-          user: body.user_id,
-          userName: body.user_name,
-          teamID: body.team_id,
-          teamDomain: body.team_domain,
-          restaurant: body.command,
-          channelID: body.channel_id,
-          channelName: body.channel_name,
-          command: body.command,
-          token: body.token,
-          order: body.text
-        }
-      },
-      { upsert: true, new: true }
-    );
+
+    if (body.text) {
+      await db.orders().findOneAndUpdate(
+        { userID: body.user_id, restaurant: body.text },
+        {
+          $set: {
+            user: body.user_id,
+            userName: body.user_name,
+            teamID: body.team_id,
+            teamDomain: body.team_domain,
+            restaurant: body.command,
+            channelID: body.channel_id,
+            channelName: body.channel_name,
+            command: body.command,
+            token: body.token,
+            order: body.text
+          }
+        },
+        { upsert: true, new: true }
+      );
+    }
+
+    const prevOrder = await db
+      .orders()
+      .findOne({ userID: body.user_id, restaurant: body.text });
+
     console.log(prevOrder);
 
     return res.status(200).send(prevOrder.order);
