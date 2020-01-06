@@ -6,10 +6,7 @@ async function slackTest(req, res) {
   try {
     console.log(req.body);
 
-    // const test = await Slack.api.test({ nice: 1 });
-    // const auth = await bot.api.test({ hyper: 'card' });
-
-    return res.status(200).json('this is complete');
+    return res.status(200).json(req.body.text);
   } catch (e) {
     console.log(e);
   }
