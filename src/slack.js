@@ -5,6 +5,7 @@ const { db } = require('../src/utils');
 
 async function slackTest({ body }, res) {
   try {
+    console.log(body);
     const prevOrder = await db.orders().findOneAndUpdate(
       { userID: body.user_id, restaurant: body.text },
       {
@@ -23,6 +24,7 @@ async function slackTest({ body }, res) {
       },
       { upsert: true, new: true }
     );
+    console.log(prevOrder);
 
     return res.status(200).send(prevOrder.order);
   } catch (e) {
