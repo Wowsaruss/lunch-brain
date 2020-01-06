@@ -6,7 +6,7 @@ async function slackTest(req, res) {
   try {
     console.log(req.body);
 
-    return res.status(200).text(req.body.text);
+    return res.status(200).send(req.body.text);
   } catch (e) {
     console.log(e);
   }
