@@ -1,10 +1,10 @@
-const Slack = require('slack');
-const token = process.env.SLACK_TOKEN;
-const bot = new Slack({ token });
+// const Slack = require('slack');
+// const token = process.env.SLACK_TOKEN;
+// const bot = new Slack({ token });
 
 async function slackTest(req, res) {
   try {
-    console.log(req);
+    console.log(res);
 
     // const test = await Slack.api.test({ nice: 1 });
     // const auth = await bot.api.test({ hyper: 'card' });
