@@ -17,7 +17,8 @@ async function slackTest({ body }, res) {
           channelID: body.channel_id,
           channelName: body.channel_name,
           command: body.command,
-          token: body.token
+          token: body.token,
+          text: body.text
         }
       },
       { upsert: true, new: true }
