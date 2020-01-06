@@ -13,18 +13,18 @@ async function slackTest({ body }, res) {
           userName: body.user_name,
           teamID: body.team_id,
           teamDomain: body.team_domain,
-          restaurant: body.text,
+          restaurant: body.command,
           channelID: body.channel_id,
           channelName: body.channel_name,
           command: body.command,
           token: body.token,
-          text: body.text
+          order: body.text
         }
       },
       { upsert: true, new: true }
     );
 
-    return res.status(200).send(prevOrder.text);
+    return res.status(200).send(prevOrder.order);
   } catch (e) {
     console.log(e);
   }
