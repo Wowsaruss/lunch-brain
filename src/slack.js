@@ -1,6 +1,3 @@
-// const Slack = require('slack');
-// const token = process.env.SLACK_TOKEN;
-// const bot = new Slack({ token });
 const { db } = require('../src/utils');
 
 async function lunchOrder({ body }, res) {
