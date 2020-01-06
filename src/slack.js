@@ -3,7 +3,7 @@
 // const bot = new Slack({ token });
 const { db } = require('../src/utils');
 
-async function slackTest({ body }, res) {
+async function lunchOrder({ body }, res) {
   try {
     if (body.text) {
       await db.orders().findOneAndUpdate(
@@ -32,10 +32,10 @@ async function slackTest({ body }, res) {
 
     return res
       .status(200)
-      .send(`### ${prevOrder.userName}\n${prevOrder.order}`);
+      .send(`${prevOrder.userName.toUpperCase()}\n${prevOrder.order}`);
   } catch (e) {
     console.log(e);
   }
 }
 
-module.exports = { slackTest };
+module.exports = { lunchOrder };
