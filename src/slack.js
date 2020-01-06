@@ -30,7 +30,9 @@ async function slackTest({ body }, res) {
       .orders()
       .findOne({ userID: body.user_id, restaurant: body.command });
 
-    return res.status(200).send(prevOrder.order);
+    return res
+      .status(200)
+      .send(`### ${prevOrder.userName}\n${prevOrder.order}`);
   } catch (e) {
     console.log(e);
   }
