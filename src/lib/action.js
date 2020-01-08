@@ -1,9 +1,8 @@
 async function interactiveComponent(req, res) {
   console.log('!!!!!!!!!!!HIT1', req.body);
   return res.status(200).json({
-    type: 'image',
-    image_url: 'http://placekitten.com/700/500',
-    alt_text: 'Multiple cute kittens'
+    type: 'plain_text_input',
+    action_id: 'view_submission'
   });
 }
 
